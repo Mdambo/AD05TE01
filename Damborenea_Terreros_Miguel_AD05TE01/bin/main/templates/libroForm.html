@@ -8,8 +8,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Nuevo Libro</h1>
+        <h1 th:text="${libro.id != null} ? 'Editar Libro' : 'Nuevo Libro'"></h1>
         <form th:action="@{/libros/new/submit}" th:object="${libro}" method="post">
+        	<input type="hidden" th:field="*{id}" id="id"/>
             <div class="form-group">
                 <label for="titulo">Título del libro</label>
                 <input type="text" id="titulo" th:field="*{titulo}" class="form-control" required>
